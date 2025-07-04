@@ -7,6 +7,15 @@ import static java.lang.Integer.parseInt;
 
 public class StringCalculator
 {
+    public int SumOfNumbers(String[] nums)
+    {
+        int sum=0;
+        for(String num:nums)
+        {
+            sum+=parseInt(num);
+        }
+        return sum;
+    }
     public int Add(String Numbers)
     {
         if(Numbers.isEmpty())
@@ -25,11 +34,6 @@ public class StringCalculator
         }
         String [] nums=Numbers.split(delimiter);
 
-        int sum=0;
-        for(String num:nums)
-        {
-            sum+=parseInt(num);
-        }
-        return sum;
+        return SumOfNumbers(nums);
     }
 }
