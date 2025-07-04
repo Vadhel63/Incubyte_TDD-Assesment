@@ -12,5 +12,13 @@ public class StringCalculatorTest{
     {
         assertEquals(0,stringCalculator.Add(""));
     }
+    @Test
+    public void  Single_Number_String_Should_Return_That_Number()
+    {
+        assertEquals(7,stringCalculator.Add("7"));
+        assertEquals(77,stringCalculator.Add("77"));
+
+
+    }
 
 }
