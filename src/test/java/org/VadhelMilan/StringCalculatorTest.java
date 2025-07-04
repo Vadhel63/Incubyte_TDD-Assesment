@@ -28,4 +28,12 @@ public class StringCalculatorTest{
 
     }
 
+    @Test
+    public void Unknown_Amount_Of_Number_String_Should_Return_SumOf_Those_Numbers()
+    {
+        assertEquals(12,stringCalculator.Add("1,3,6,2"));
+        assertEquals(29,stringCalculator.Add("5,7,8,9"));
+
+    }
+
 }

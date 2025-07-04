@@ -11,6 +11,7 @@ public class StringCalculator
         {
             return 0;
         }
+
         if(Numbers.contains(","))
         {
             String [] nums=Numbers.split(",");
