@@ -14,7 +14,16 @@ public class StringCalculator
             return 0;
         }
 
-        String [] nums=Numbers.split("[,\n]");
+        String delimiter="[,\n]";
+        if(Numbers.startsWith("//"))
+        {
+            int IdxOfNl=Numbers.indexOf("\n");
+            String CustomDelimiter=Numbers.substring(2,IdxOfNl);
+            delimiter = Pattern.quote(CustomDelimiter);
+            Numbers=Numbers.substring(IdxOfNl+1);
+
+        }
+        String [] nums=Numbers.split(delimiter);
 
         int sum=0;
         for(String num:nums)
