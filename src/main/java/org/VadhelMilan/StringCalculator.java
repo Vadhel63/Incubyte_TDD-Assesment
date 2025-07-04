@@ -8,7 +8,6 @@ import static java.lang.Integer.parseInt;
 
 public class StringCalculator
 {
-
     public int SumOfNumbers(String[] nums)
     {
 
@@ -37,7 +36,6 @@ public class StringCalculator
     }
     public int Add(String Numbers)
     {
-
         if(Numbers.isEmpty())
         {
             return 0;

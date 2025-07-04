@@ -66,5 +66,11 @@ Exception ex1=assertThrows(IllegalArgumentException.class,()->{stringCalculator.
         Exception ex2=assertThrows(IllegalArgumentException.class,()->{stringCalculator.Add("-1,-4,5,-7");});
         assertEquals("negative not allowed: -1,-4,-7",ex2.getMessage());
     }
-
+    @Test
+    public  void  Track_How_Many_Times_AddMethod_Was_Invoked()
+    {
+        stringCalculator.Add("7,8,9");
+        stringCalculator.Add("1,2");
+        assertEquals(2,stringCalculator.GetCalledCount());
+    }
 }
