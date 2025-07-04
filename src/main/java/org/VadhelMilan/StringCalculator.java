@@ -8,6 +8,7 @@ import static java.lang.Integer.parseInt;
 
 public class StringCalculator
 {
+    private  int count=0;
     public int SumOfNumbers(String[] nums)
     {
 
@@ -36,6 +37,7 @@ public class StringCalculator
     }
     public int Add(String Numbers)
     {
+        count++;
         if(Numbers.isEmpty())
         {
             return 0;
@@ -54,5 +56,8 @@ public class StringCalculator
         ContainNegative(nums);
         return SumOfNumbers(nums);
     }
-
+    public int GetCalledCount()
+    {
+        return count;
+    }
 }
