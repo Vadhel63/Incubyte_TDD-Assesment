@@ -4,6 +4,7 @@ package org.VadhelMilan;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThrows;
 
 public class StringCalculatorTest{
     StringCalculator stringCalculator=new StringCalculator();
@@ -49,5 +50,11 @@ public class StringCalculatorTest{
         assertEquals(15,stringCalculator.Add("//:\n8:7"));
 
 
+    }
+    @Test
+    public void Single_Negative_Number_Throws_Exception()
+    {
+        Exception exception=assertThrows(IllegalArgumentException.class,()->{stringCalculator.Add("-1,2\n3");});
+        assertEquals("negative not allowed: -1",exception.getMessage());
     }
 }
