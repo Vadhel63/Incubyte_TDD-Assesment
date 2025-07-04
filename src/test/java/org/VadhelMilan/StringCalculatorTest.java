@@ -56,5 +56,6 @@ public class StringCalculatorTest{
     {
         Exception exception=assertThrows(IllegalArgumentException.class,()->{stringCalculator.Add("-1,2\n3");});
         assertEquals("negative not allowed: -1",exception.getMessage());
+
     }
 }
