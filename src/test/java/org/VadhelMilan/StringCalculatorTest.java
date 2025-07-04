@@ -58,4 +58,12 @@ public class StringCalculatorTest{
         assertEquals("negative not allowed: -1",exception.getMessage());
 
     }
+    @Test
+    public void Multiple_Negative_Numbers_Throws_Exception()
+    {
+Exception ex1=assertThrows(IllegalArgumentException.class,()->{stringCalculator.Add("-2,4,-5");});
+      assertEquals("negative not allowed: -2,-5",ex1.getMessage());
+        Exception ex2=assertThrows(IllegalArgumentException.class,()->{stringCalculator.Add("-1,-4,5,-7");});
+        assertEquals("negative not allowed: -1,-4,-7",ex2.getMessage());
+    }
 }

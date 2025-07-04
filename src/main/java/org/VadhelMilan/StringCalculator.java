@@ -22,7 +22,7 @@ public class StringCalculator
         }
         return sum;
     }
-    public int Add(String Numbers)
+    public int Add(String Numbers) throws IllegalArgumentException
     {
         if(Numbers.isEmpty())
         {
