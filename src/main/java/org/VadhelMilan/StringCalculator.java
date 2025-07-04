@@ -8,28 +8,36 @@ import static java.lang.Integer.parseInt;
 
 public class StringCalculator
 {
+
     public int SumOfNumbers(String[] nums)
     {
-        ArrayList<String> neg=new ArrayList<>();
+
         int sum=0;
         for(String num:nums)
         {
-            int val=parseInt(num);
-            if(val<0)
+            sum+=parseInt(num);
+        }
+
+        return sum;
+    }
+    public  void ContainNegative(String [] nums)
+    {
+        ArrayList<String> neg=new ArrayList<>();
+        for(String num:nums)
+        {
+            if(parseInt(num)<0)
             {
                 neg.add(num);
             }
-
-            sum+=val;
         }
         if(!neg.isEmpty())
         {
             throw new IllegalArgumentException("negative not allowed: " + String.join(",", neg));
         }
-        return sum;
     }
     public int Add(String Numbers)
     {
+
         if(Numbers.isEmpty())
         {
             return 0;
@@ -45,7 +53,8 @@ public class StringCalculator
 
         }
         String [] nums=Numbers.split(delimiter);
-
+        ContainNegative(nums);
         return SumOfNumbers(nums);
     }
+
 }
