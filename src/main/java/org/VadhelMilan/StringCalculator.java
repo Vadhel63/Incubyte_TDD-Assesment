@@ -1,6 +1,8 @@
 package org.VadhelMilan;
 
 
+import static java.lang.Integer.parseInt;
+
 public class StringCalculator
 {
     public int Add(String Numbers)
@@ -9,6 +11,6 @@ public class StringCalculator
         {
             return 0;
         }
-        return 0;
+        return parseInt(Numbers);
     }
 }
