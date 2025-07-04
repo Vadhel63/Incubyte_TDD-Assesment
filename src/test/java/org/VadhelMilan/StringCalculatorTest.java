@@ -20,5 +20,12 @@ public class StringCalculatorTest{
 
 
     }
+    @Test
+    public void Two_Number_String_Should_Return_SumOf_That_Two_Numbers()
+    {
+        assertEquals(8,stringCalculator.Add("3,5"));
+        assertEquals(12,stringCalculator.Add("7,5"));
+
+    }
 
 }
