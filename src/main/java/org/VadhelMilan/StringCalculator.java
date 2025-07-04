@@ -1,6 +1,8 @@
 package org.VadhelMilan;
 
 
+import java.util.regex.Pattern;
+
 import static java.lang.Integer.parseInt;
 
 public class StringCalculator
@@ -11,6 +13,7 @@ public class StringCalculator
         {
             return 0;
         }
+
         String [] nums=Numbers.split("[,\n]");
 
         int sum=0;

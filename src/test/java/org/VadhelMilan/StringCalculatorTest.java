@@ -41,5 +41,13 @@ public class StringCalculatorTest{
         assertEquals(6,stringCalculator.Add("4\n2"));
         assertEquals(7,stringCalculator.Add("2\n4,1"));
     }
+    @Test
+    public void Different_Delimiter_Should_also_Work()
+    {
+        assertEquals(3,stringCalculator.Add("//;\n1;2"));
+        assertEquals(12,stringCalculator.Add("//.\n7.5"));
+        assertEquals(15,stringCalculator.Add("//:\n8:7"));
 
+
+    }
 }
