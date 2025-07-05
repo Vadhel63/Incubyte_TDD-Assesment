@@ -59,41 +59,28 @@ public class StringCalculator
         }
 
         String delimiter="[,\n]";
-        if(Numbers.startsWith("//"))
-        {
-            int DelimiterEnd=Numbers.indexOf("\n");
-            String DelimiterSection=Numbers.substring(2,DelimiterEnd);
-            int CountChar=CountChar(Numbers,'[');
-            if(CountChar>1) {
-                if (Numbers.contains("[") && Numbers.contains("]")) {
-                    ArrayList<String> delimiters = new ArrayList<>();
-                    Matcher matcher = Pattern.compile("\\[(.*?)\\]").matcher(DelimiterSection);
-                    while (matcher.find()) {
-                        delimiters.add(Pattern.quote(matcher.group(1)));
-                    }
-                    delimiter = String.join("|", delimiters);
+        if (Numbers.startsWith("//")) {
+            int delimiterEnd = Numbers.indexOf("\n");
+            String delimiterSection = Numbers.substring(2, delimiterEnd);
+            Numbers = Numbers.substring(delimiterEnd + 1);
+
+            ArrayList<String> delimiters = new ArrayList<>();
+
+            // Case 1: multiple delimiters With Any No .of Characters
+            if (delimiterSection.contains("[") && delimiterSection.contains("]")) {
+                Matcher matcher = Pattern.compile("\\[(.*?)]").matcher(delimiterSection);
+                while (matcher.find()) {
+                    delimiters.add(Pattern.quote(matcher.group(1)));
                 }
-                Numbers = Numbers.substring(DelimiterEnd + 1);
-
             }
-            else
-            {
-                if(Numbers.startsWith("//["))
-            {
-                int endIdx=Numbers.indexOf("]\n");
-                String AnyNumberOfDelimiter=Numbers.substring(3,endIdx);
-                delimiter=Pattern.quote((AnyNumberOfDelimiter));
-                Numbers=Numbers.substring(endIdx+2);
-            }
+            // Case 2: single-character delimiter
             else {
-                int IdxOfNl = Numbers.indexOf("\n");
-                String CustomDelimiter = Numbers.substring(2, IdxOfNl);
-                delimiter = Pattern.quote(CustomDelimiter);
-                Numbers = Numbers.substring(IdxOfNl + 1);
-            }
+                delimiters.add(Pattern.quote(delimiterSection));
             }
 
+            delimiter = String.join("|", delimiters);
         }
+
         String [] nums=Numbers.split(delimiter);
         ContainNegative(nums);
         return SumOfNumbers(nums);
