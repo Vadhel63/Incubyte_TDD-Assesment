@@ -86,4 +86,12 @@ Exception ex1=assertThrows(IllegalArgumentException.class,()->{stringCalculator.
         assertEquals(6,stringCalculator.Add("//[**;]\n1**;2**;3"));
         assertEquals(18,stringCalculator.Add("//[;;]\n7;;6;;5"));
     }
+    @Test
+    public void Multiple_Delimiter_With_Single_char_Should_work()
+    {
+        assertEquals(6,stringCalculator.Add("//[*][%]\n1*2%3" ));
+        assertEquals(16,stringCalculator.Add("//[,][;]\n7;4,5" ));
+
+
+    }
 }
