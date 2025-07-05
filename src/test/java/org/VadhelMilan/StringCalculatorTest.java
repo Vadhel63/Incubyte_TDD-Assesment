@@ -73,4 +73,11 @@ Exception ex1=assertThrows(IllegalArgumentException.class,()->{stringCalculator.
         stringCalculator.Add("1,2");
         assertEquals(2,stringCalculator.GetCalledCount());
     }
+    @Test
+    public void Ignore_Number_Greater_Than_1000()
+    {
+        assertEquals(4,stringCalculator.Add("1,3,1001"));
+        assertEquals(7,stringCalculator.Add("1,6,1002,1005"));
+
+    }
 }
