@@ -15,7 +15,9 @@ public class StringCalculator
         int sum=0;
         for(String num:nums)
         {
-            sum+=parseInt(num);
+            int val=parseInt(num);
+            if(val<=1000)
+                sum+=val;
         }
 
         return sum;
