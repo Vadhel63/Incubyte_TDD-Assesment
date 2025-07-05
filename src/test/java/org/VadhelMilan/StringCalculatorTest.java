@@ -80,4 +80,10 @@ Exception ex1=assertThrows(IllegalArgumentException.class,()->{stringCalculator.
         assertEquals(7,stringCalculator.Add("1,6,1002,1005"));
 
     }
+    @Test
+    public void Delimiter_With_Any_Length_Should_Work()
+    {
+        assertEquals(6,stringCalculator.Add("//[**;]\n1**;2**;3"));
+        assertEquals(18,stringCalculator.Add("//[;;]\n7;;6;;5"));
+    }
 }
