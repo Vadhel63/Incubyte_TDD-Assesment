@@ -48,10 +48,19 @@ public class StringCalculator
         String delimiter="[,\n]";
         if(Numbers.startsWith("//"))
         {
-            int IdxOfNl=Numbers.indexOf("\n");
-            String CustomDelimiter=Numbers.substring(2,IdxOfNl);
-            delimiter = Pattern.quote(CustomDelimiter);
-            Numbers=Numbers.substring(IdxOfNl+1);
+            if(Numbers.startsWith("//["))
+            {
+                int endIdx=Numbers.indexOf("]\n");
+                String AnyNumberOfDelimiter=Numbers.substring(3,endIdx);
+                delimiter=Pattern.quote((AnyNumberOfDelimiter));
+                Numbers=Numbers.substring(endIdx+2);
+            }
+            else {
+                int IdxOfNl = Numbers.indexOf("\n");
+                String CustomDelimiter = Numbers.substring(2, IdxOfNl);
+                delimiter = Pattern.quote(CustomDelimiter);
+                Numbers = Numbers.substring(IdxOfNl + 1);
+            }
 
         }
         String [] nums=Numbers.split(delimiter);
