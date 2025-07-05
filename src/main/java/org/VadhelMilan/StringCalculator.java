@@ -67,7 +67,7 @@ public class StringCalculator
             if(CountChar>1) {
                 if (Numbers.contains("[") && Numbers.contains("]")) {
                     ArrayList<String> delimiters = new ArrayList<>();
-                    Matcher matcher = Pattern.compile("\\[(.)\\]").matcher(DelimiterSection);
+                    Matcher matcher = Pattern.compile("\\[(.*?)\\]").matcher(DelimiterSection);
                     while (matcher.find()) {
                         delimiters.add(Pattern.quote(matcher.group(1)));
                     }
